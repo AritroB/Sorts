@@ -83,4 +83,30 @@ public class Sorts {
             right++;
         }
     }
+
+    public void quickSort(int[] a, int low, int high) {
+        int left, right, pivot_item = a[low];
+        left = low;
+        right = high;
+        while (left < right) {
+            while (a[left] <= pivot_item) {
+                left++;
+            }
+            while(a[right] > pivot_item) {
+                right--;
+            }
+            if (left < right) {
+                swap(a,left,right);
+            }
+        }
+        a[low] = a[right];
+        a[right] = pivot_item;
+    }
+
+    private void swap(int[] a, int left, int right) {
+        int temp = 0;
+        temp = a[left];
+        a[left] = a[right];
+        a[right] = temp;
+    }
 }
