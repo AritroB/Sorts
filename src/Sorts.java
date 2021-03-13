@@ -39,4 +39,16 @@ public class Sorts {
             a[i] = temp;
         }
     }
+
+    public void InsertionSort(int[] a) {
+        for (int i = 1; i <= a.length - 1; i++) {
+            int v = a[i];
+            int j = i;
+            while (a[j-1] > v && j >= i) {
+                a[j] = a[j-1];
+                j--;
+            }
+            a[j] = v;
+        }
+    }
 }
