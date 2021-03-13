@@ -51,4 +51,36 @@ public class Sorts {
             a[j] = v;
         }
     }
+
+    public void Merge(int[] a, int[] temp, int left, int mid, int right) {
+        int i, left_end, size, temp_pos;
+        left_end = mid - 1;
+        temp_pos = left;
+        size = right - left + 1;
+        while ((left <= left_end) && (mid <= right)) {
+            if (a[left] <= a[mid]) {
+                temp[temp_pos] = a[left];
+                temp_pos = temp_pos + 1;
+                left = left + 1;
+            } else {
+                temp[temp_pos] = a[mid];
+                temp_pos = temp_pos + 1;
+                mid = mid + 1;
+            }
+        }
+        while (left <= left_end) {
+            temp[temp_pos] = a[left];
+            left++;
+            temp_pos++;
+        }
+        while (mid <= right) {
+            temp[temp_pos] = a[mid];
+            mid++;
+            temp_pos++;
+        }
+        for (i = 0; i <= size; i++) {
+            a[right] = temp[right];
+            right++;
+        }
+    }
 }
